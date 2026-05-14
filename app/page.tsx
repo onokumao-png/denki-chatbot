@@ -38,7 +38,11 @@ export default function Home() {
 
       while (true) {
         const { done, value } = await reader.read();
-        if (done) break;
+        if (done) {
+          // ストリーム終了時にバッファ内の残りバイト（日本語マルチバイト文字等）をフラッシュ
+          accumulated += decoder.decode();
+          break;
+        }
         accumulated += decoder.decode(value, { stream: true });
         setStreamingText(accumulated);
       }
