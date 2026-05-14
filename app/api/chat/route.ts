@@ -2,8 +2,6 @@ import { anthropic } from "@/lib/claude";
 import { SYSTEM_PROMPT } from "@/lib/system-prompt";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
-
 export async function POST(req: NextRequest) {
   // リクエストボディの JSON パース（不正な場合は 400 を返す）
   let messages: unknown[];
