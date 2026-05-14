@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 // 1件のメッセージを表示するコンポーネント
 type Props = {
@@ -27,7 +28,7 @@ export function MessageBubble({ role, content }: Props) {
           content
         ) : (
           // アシスタントの回答はMarkdownをHTMLとしてレンダリング
-          <ReactMarkdown
+          <ReactMarkdown remarkPlugins={[remarkGfm]}
             components={{
               p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
               strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
