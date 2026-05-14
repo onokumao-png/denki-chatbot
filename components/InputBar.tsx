@@ -20,7 +20,7 @@ export function InputBar({ onSend, disabled }: Props) {
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 p-3 border-t bg-white">
       <input
-        className="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
         placeholder="例：OCRの整定値の決め方は？"
         value={value}
         onChange={(e) => setValue(e.target.value)}
